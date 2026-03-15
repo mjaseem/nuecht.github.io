@@ -1,0 +1,22 @@
+{{ define "main" }}
+<header class="page-header">
+  <h1 class="page-header__title">Topics</h1>
+  {{ with .Description }}
+  <p class="page-header__description">{{ . }}</p>
+  {{ end }}
+</header>
+<div class="topics-grid">
+  {{ range .Data.Terms.Alphabetical }}
+  <a href="{{ .Page.RelPermalink }}" class="topic-card">
+    <div class="topic-card__name">{{ .Page.Title }}</div>
+    {{ with .Page.Description }}
+    <p class="topic-card__description">{{ . }}</p>
+    {{ end }}
+    <div class="topic-card__count">{{ .Count }} {{ if eq .Count 1 }}note{{ else }}notes{{ end }}</div>
+  </a>
+  {{ end }}
+  {{ if not .Data.Terms }}
+  <p class="empty-state">No topics yet.</p>
+  {{ end }}
+</div>
+{{ end }}

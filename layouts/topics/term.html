@@ -1,0 +1,47 @@
+{{ define "main" }}
+<header class="page-header">
+  <h1 class="page-header__title">{{ .Title }}</h1>
+  {{ with .Description }}
+  <p class="page-header__description">{{ . }}</p>
+  {{ end }}
+</header>
+
+{{ $articles := where .Pages "Section" "articles" }}
+{{ $notes := where .Pages "Section" "notes" }}
+
+{{ if and $articles $notes }}
+<div class="topic-columns">
+  <section class="topic-section">
+    <h2 class="topic-section__heading">Articles</h2>
+    <div class="notes-list">
+      {{ range $articles }}
+        {{ partial "note-card.html" . }}
+      {{ end }}
+    </div>
+  </section>
+  <section class="topic-section">
+    <h2 class="topic-section__heading">Notes</h2>
+    <div class="notes-list">
+      {{ range $notes }}
+        {{ partial "note-card.html" . }}
+      {{ end }}
+    </div>
+  </section>
+</div>
+{{ else if $articles }}
+<h2 class="topic-section__heading">Articles</h2>
+<div class="notes-list">
+  {{ range $articles }}
+    {{ partial "note-card.html" . }}
+  {{ end }}
+</div>
+{{ else if $notes }}
+<div class="notes-list">
+  {{ range $notes }}
+    {{ partial "note-card.html" . }}
+  {{ end }}
+</div>
+{{ else }}
+<p class="empty-state">No notes on this topic yet.</p>
+{{ end }}
+{{ end }}

@@ -1,0 +1,21 @@
+{{ define "main" }}
+<article>
+  <header class="note-header">
+    <h1 class="note-header__title">{{ .Title }}</h1>
+    <div class="note-header__meta">
+      <time datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format "January 2, 2006" }}</time>
+      {{ with .Params.topics }}
+        <span aria-hidden="true">·</span>
+        <div style="display:flex;gap:0.5rem;flex-wrap:wrap;">
+          {{ range . }}
+          <a href="{{ "/topics/" | relURL }}{{ . | urlize }}/" class="topic-tag">{{ . }}</a>
+          {{ end }}
+        </div>
+      {{ end }}
+    </div>
+  </header>
+  <div class="note-body prose">
+    {{ .Content }}
+  </div>
+</article>
+{{ end }}

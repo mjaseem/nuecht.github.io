@@ -1,0 +1,19 @@
+{{ define "main" }}
+<div class="article-page">
+  <header class="note-header">
+    <div class="note-header__meta" style="margin-bottom: var(--space-4)">
+      {{ with index .Params.topics 0 }}
+      <a href="{{ "/topics/" | relURL }}{{ . | urlize }}/" class="topic-tag">{{ . }}</a>
+      <span aria-hidden="true">·</span>
+      {{ end }}
+      {{ with .Params.maturity }}
+      <span class="maturity-badge maturity-badge--{{ . }}">{{ . }}</span>
+      {{ end }}
+    </div>
+    <h1 class="note-header__title">{{ .Title }}</h1>
+  </header>
+  <div class="article-body prose">
+    {{ .Content }}
+  </div>
+</div>
+{{ end }}

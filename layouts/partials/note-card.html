@@ -1,0 +1,19 @@
+{{- $note := . -}}
+<a href="{{ $note.RelPermalink }}" class="note-card">
+  <div class="note-card__title">{{ $note.Title }}</div>
+  {{ with $note.Params.summary }}
+  <p class="note-card__summary">{{ . }}</p>
+  {{ end }}
+  <div class="note-card__meta">
+    {{ if not $note.Date.IsZero }}
+    <time class="note-card__date" datetime="{{ $note.Date.Format "2006-01-02" }}">{{ $note.Date.Format "Jan 2, 2006" }}</time>
+    {{ end }}
+    {{ with $note.Params.topics }}
+    <div class="note-card__topics">
+      {{ range . }}
+      <a href="{{ "/topics/" | relURL }}{{ . | urlize }}/" class="topic-tag" onclick="event.stopPropagation()">{{ . }}</a>
+      {{ end }}
+    </div>
+    {{ end }}
+  </div>
+</a>

@@ -1,0 +1,13 @@
+{{- $ref := .Get "ref" -}}
+{{- $note := site.GetPage (printf "/notes/%s" $ref) -}}
+{{- $id := printf "sn-%s" $ref -}}
+<span class="sidenote-wrap
+  "><label for="{{ $id }}" class="sidenote-ref" aria-label="Sidenote"><sup></sup></label
+  ><input type="checkbox" id="{{ $id }}" class="sidenote-toggle" aria-hidden="true"
+  >{{- if $note -}}<aside class="sidenote">
+    <a href="{{ $note.RelPermalink }}" class="sidenote__inner">
+      <span class="sidenote__title">{{ $note.Title }}</span>
+      <time class="sidenote__date">{{ $note.Date.Format "Jan 2, 2006" }}</time>
+      {{ with $note.Params.summary }}<p class="sidenote__summary">{{ . }}</p>{{ end }}
+    </a>
+  </aside>{{- else -}}<aside class="sidenote sidenote--missing">Note not found: {{ $ref }}</aside>{{- end -}}</span>

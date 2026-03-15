@@ -1,0 +1,45 @@
+{{ define "main" }}
+<section class="home-intro">
+  <p class="home-intro__eyebrow">{{ site.Title }}</p>
+  <h1 class="home-intro__title">Long-running research, published as it happens.</h1>
+  {{ with site.Params.description }}
+  <p class="home-intro__description">{{ . }}</p>
+  {{ end }}
+</section>
+
+{{ $notes := where site.RegularPages "Section" "notes" | first 10 }}
+{{ if $notes }}
+<section class="home-section">
+  <div class="home-section__header">
+    <span class="home-section__label">Recent notes</span>
+    <a href="{{ "/notes/" | relURL }}" class="home-section__link">All notes →</a>
+  </div>
+  <div class="notes-list">
+    {{ range $notes }}
+      {{ partial "note-card.html" . }}
+    {{ end }}
+  </div>
+</section>
+{{ end }}
+
+{{ $topics := site.Taxonomies.topics }}
+{{ if $topics }}
+<section class="home-section">
+  <div class="home-section__header">
+    <span class="home-section__label">Topics</span>
+    <a href="{{ "/topics/" | relURL }}" class="home-section__link">All topics →</a>
+  </div>
+  <div class="topics-grid">
+    {{ range $topics.Alphabetical }}
+    <a href="{{ .Page.RelPermalink }}" class="topic-card">
+      <div class="topic-card__name">{{ .Page.Title }}</div>
+      {{ with .Page.Description }}
+      <p class="topic-card__description">{{ . }}</p>
+      {{ end }}
+      <div class="topic-card__count">{{ .Count }} {{ if eq .Count 1 }}note{{ else }}notes{{ end }}</div>
+    </a>
+    {{ end }}
+  </div>
+</section>
+{{ end }}
+{{ end }}

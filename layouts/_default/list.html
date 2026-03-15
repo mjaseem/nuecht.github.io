@@ -1,0 +1,14 @@
+{{ define "main" }}
+<header class="page-header">
+  <h1 class="page-header__title">{{ .Title }}</h1>
+  {{ with .Description }}<p class="page-header__description">{{ . }}</p>{{ end }}
+</header>
+<div class="notes-list">
+  {{ range .Pages }}
+    {{ partial "note-card.html" . }}
+  {{ end }}
+  {{ if not .Pages }}
+  <p class="empty-state">Nothing here yet.</p>
+  {{ end }}
+</div>
+{{ end }}

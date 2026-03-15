@@ -1,0 +1,22 @@
+baseURL: 'https://nuecht.github.io/'
+languageCode: 'en-us'
+title: 'Nuecht'
+
+taxonomies:
+  topic: topics
+
+outputs:
+  home: [HTML, RSS]
+  section: [HTML, RSS]
+  taxonomy: [HTML, RSS]
+  term: [HTML, RSS]
+
+params:
+  description: 'A personal publishing system for long-running research.'
+
+markup:
+  goldmark:
+    renderer:
+      unsafe: true
+  highlight:
+    style: 'monokailight'
