@@ -12,10 +12,16 @@ outputs:
   term: [HTML, RSS]
 
 params:
-  description: 'A personal publishing system for long-running research.'
+  description: 'Content in the website is broadly divided into articles and notes.
+  Articles are written with other people as target audience. Notes are primarily for my own consumption.
+  I am hoping this structure encourages me to write more and eventually there will be something here you find useful. '
 
 markup:
   goldmark:
+    extensions:
+      extras:
+        superscript:
+          enable: true
     renderer:
       unsafe: true
   highlight:

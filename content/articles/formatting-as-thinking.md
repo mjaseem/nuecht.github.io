@@ -1,4 +1,5 @@
 ---
+draft: true
 title: "Formatting as Thinking: Every Element You Reach For Is a Claim About How Ideas Relate"
 date: 2024-03-10
 topics: [writing, design]

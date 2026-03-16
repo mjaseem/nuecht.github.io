@@ -1,4 +1,5 @@
 ---
+draft: true
 title: "The Writing Process: Why Every Draft Has Three Stages and What Goes Wrong When You Collapse Them"
 date: 2024-03-12
 topics: [writing]

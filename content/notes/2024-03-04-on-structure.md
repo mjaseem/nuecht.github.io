@@ -1,4 +1,5 @@
 ---
+draft: true
 title: "On Structure in Writing: How Headings Make the Shape of an Argument Visible Before a Single Word Is Read"
 date: 2024-03-04
 topics: [writing]

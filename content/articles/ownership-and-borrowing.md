@@ -1,4 +1,5 @@
 ---
+draft: true
 title: "Ownership and Borrowing"
 date: 2024-01-20
 topics: [rust]

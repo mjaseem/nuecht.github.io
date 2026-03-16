@@ -1,4 +1,5 @@
 ---
+draft: true
 title: "On Visual Thinking"
 date: 2024-03-03
 topics: [design]

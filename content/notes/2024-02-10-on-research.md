@@ -1,4 +1,5 @@
 ---
+draft: true
 title: "On doing research in small increments"
 date: 2024-02-10
 topics: [meta, research]

@@ -1,4 +1,5 @@
 ---
+draft: true
 title: "On Typography: Why Font Choices Are Never Just Aesthetic Decisions"
 date: 2024-03-01
 topics: [writing, design]
