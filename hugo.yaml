@@ -12,7 +12,7 @@ outputs:
   term: [HTML, RSS]
 
 params:
-  description: 'Content in the website is broadly divided into articles and notes.
+  description: 'Content on the website is broadly divided into articles and notes.
   Articles are written with other people as target audience. Notes are primarily for my own consumption.
   I am hoping this structure encourages me to write more and eventually there will be something here you find useful. '
 
